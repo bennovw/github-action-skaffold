@@ -64,7 +64,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Build Docker images
-        uses: hiberbee/github-action-skaffold@1.20.0
+        uses: bennovw/github-action-skaffold@1.20.0
         with:
           command: build
           repository: ghcr.io/hiberbee/docker
@@ -106,7 +106,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Run Skaffold pipeline as action
-        uses: hiberbee/github-action-skaffold@1.19.0
+        uses: bennovw/github-action-skaffold@1.19.0
         with:
           command: run
           repository: ghcr.io/${{ github.repository }}
@@ -115,7 +115,3 @@ jobs:
         run: helm list
 
 ```
-
-## CLI usage
-
-You can use that action just to set up Skaffold and then perform actions manually. Here is code sample:

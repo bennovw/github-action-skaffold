@@ -1,6 +1,6 @@
 name: Skaffold Github Action
 description: Setup Skaffold and all required dependencies
-author: hiberbee
+author: bennovw
 branding:
   icon: anchor
   color: blue
