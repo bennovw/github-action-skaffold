@@ -269,10 +269,29 @@ function mv(source, dest, options = {}) {
             }
         }
         yield mkdirP(path.dirname(dest));
-        yield ioUtil.rename(source, dest);
+        yield moveFile(source, dest, true);
     });
 }
 exports.mv = mv;
+
+// moves a file or folder to a new location
+async function moveFile(source, dest, deleteSource = false) {
+    const fs = require('fs').promises;
+    try {
+        await fs.copyFile(source, dest);
+        await fs.unlink(source);
+        if (deleteSource == true) {
+            try {
+            await fs.rm(source, { recursive: true });
+            } catch (err) {
+                console.error(`Error deleting source file after moving file: ${err}`);
+            }
+        }
+    } catch (err) {
+        console.error(`Error moving file: ${err}`);
+    }
+}
+
 /**
  * Remove a path recursively with force
  *
@@ -1974,10 +1993,29 @@ function mv(source, dest, options = {}) {
             }
         }
         yield mkdirP(path.dirname(dest));
-        yield ioUtil.rename(source, dest);
+        yield moveFile(source, dest, true);
     });
 }
 exports.mv = mv;
+
+// moves a file or folder to a new location
+async function moveFile(source, dest, deleteSource = false) {
+    const fs = require('fs').promises;
+    try {
+        await fs.copyFile(source, dest);
+        await fs.unlink(source);
+        if (deleteSource == true) {
+            try {
+            await fs.rm(source, { recursive: true });
+            } catch (err) {
+                console.error(`Error deleting source file after moving file: ${err}`);
+            }
+        }
+    } catch (err) {
+        console.error(`Error moving file: ${err}`);
+    }
+}
+
 /**
  * Remove a path recursively with force
  *
