@@ -269,24 +269,17 @@ function mv(source, dest, options = {}) {
             }
         }
         yield mkdirP(path.dirname(dest));
-        yield moveFile(source, dest, true);
+        yield moveFile(source, dest);
     });
 }
 exports.mv = mv;
 
 // moves a file or folder to a new location
-async function moveFile(source, dest, deleteSource = false) {
+async function moveFile(source, dest) {
     const fs = require('fs').promises;
     try {
         await fs.copyFile(source, dest);
         await fs.unlink(source);
-        if (deleteSource == true) {
-            try {
-            await fs.rm(source, { recursive: true });
-            } catch (err) {
-                console.error(`Error deleting source file after moving file: ${err}`);
-            }
-        }
     } catch (err) {
         console.error(`Error moving file: ${err}`);
     }
@@ -1993,24 +1986,17 @@ function mv(source, dest, options = {}) {
             }
         }
         yield mkdirP(path.dirname(dest));
-        yield moveFile(source, dest, true);
+        yield moveFile(source, dest);
     });
 }
 exports.mv = mv;
 
 // moves a file or folder to a new location
-async function moveFile(source, dest, deleteSource = false) {
+async function moveFile(source, dest) {
     const fs = require('fs').promises;
     try {
         await fs.copyFile(source, dest);
         await fs.unlink(source);
-        if (deleteSource == true) {
-            try {
-            await fs.rm(source, { recursive: true });
-            } catch (err) {
-                console.error(`Error deleting source file after moving file: ${err}`);
-            }
-        }
     } catch (err) {
         console.error(`Error moving file: ${err}`);
     }
@@ -7217,24 +7203,17 @@ function mv(source, dest, options = {}) {
             }
         }
         yield mkdirP(path.dirname(dest));
-        yield moveFile(source, dest, true);
+        yield moveFile(source, dest);
     });
 }
 exports.mv = mv;
 
 // moves a file or folder to a new location
-async function moveFile(source, dest, deleteSource = false) {
+async function moveFile(source, dest) {
     const fs = require('fs').promises;
     try {
         await fs.copyFile(source, dest);
         await fs.unlink(source);
-        if (deleteSource == true) {
-            try {
-            await fs.rm(source, { recursive: true });
-            } catch (err) {
-                console.error(`Error deleting source file after moving file: ${err}`);
-            }
-        }
     } catch (err) {
         console.error(`Error moving file: ${err}`);
     }
@@ -9290,24 +9269,17 @@ function mv(source, dest, options = {}) {
             }
         }
         yield mkdirP(path.dirname(dest));
-        yield moveFile(source, dest, true);
+        yield moveFile(source, dest);
     });
 }
 exports.mv = mv;
 
 // moves a file or folder to a new location
-async function moveFile(source, dest, deleteSource = false) {
+async function moveFile(source, dest) {
     const fs = require('fs').promises;
     try {
         await fs.copyFile(source, dest);
         await fs.unlink(source);
-        if (deleteSource == true) {
-            try {
-            await fs.rm(source, { recursive: true });
-            } catch (err) {
-                console.error(`Error deleting source file after moving file: ${err}`);
-            }
-        }
     } catch (err) {
         console.error(`Error moving file: ${err}`);
     }
