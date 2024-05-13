@@ -4075,6 +4075,7 @@ exports.toCommandValue = toCommandValue;
 
 /***/ }),
 
+// This function is responsible for running the Skaffold CLI with the provided arguments.
 /***/ 408:
 /***/ (function(__unusedmodule, exports, __webpack_require__) {
 
